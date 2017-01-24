@@ -20,7 +20,7 @@ public class BoardDaoImpl implements BoardDao{
 	
 	@Override
 	public List<BoardVO> listPage() {
-		System.out.println(session.getConfiguration().getMappedStatementNames());
+		//System.out.println(session.getConfiguration().getMappedStatementNames());
 		return session.selectList(namespace + ".listPage");
 				
 	}
