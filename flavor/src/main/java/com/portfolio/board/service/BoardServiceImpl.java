@@ -21,4 +21,15 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.listPage();
 	}
 
+	@Override
+	public BoardVO readPage(int bno) {
+		
+		return boardDao.readPage(bno);
+	}
+
+	@Override
+	public void modifyPage(BoardVO boardVO) {
+		boardDao.modify(boardVO);
+	}
+
 }

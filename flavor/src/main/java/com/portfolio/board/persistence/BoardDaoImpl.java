@@ -25,4 +25,16 @@ public class BoardDaoImpl implements BoardDao{
 				
 	}
 
+
+	@Override
+	public BoardVO readPage(int bno) {
+
+		return session.selectOne(namespace + ".readPage",bno);
+
+	}
+
+	@Override
+	public void modify(BoardVO boardVO) {
+		session.update(namespace + ".modifyPage",boardVO);
+	}
 }
