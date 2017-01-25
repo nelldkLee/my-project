@@ -35,7 +35,9 @@
 						</c:forEach>
 					</table>
 				</div>
-				<div class="box-footer">Footer</div>
+				<div class="box-footer">
+				    <button type="submit" class="btn btn-danger" >글쓰기</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -47,6 +49,14 @@
 	if (result == 'success') {
 		alert("처리가 완료되었습니다.");
 	}
+	
+	
+	$(document).ready(function(){
+		$(".btn-danger").on("click", function() {
+			self.location = "/board/register"
+		});
+	});
+	
 </script>
 
 <%@include file="../include/footer.jsp"%>
