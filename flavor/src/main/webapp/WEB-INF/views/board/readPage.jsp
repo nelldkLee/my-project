@@ -65,6 +65,10 @@
 		
 	});
 	
+	var result = '${msg}';
+	if (result == 'success') {
+		alert("글이 등록 되었습니다.");
+	}
 
 </script>
 <%@include file="../include/footer.jsp" %>
