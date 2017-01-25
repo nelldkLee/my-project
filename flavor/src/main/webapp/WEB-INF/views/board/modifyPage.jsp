@@ -26,11 +26,12 @@
 								name="writer" class="form-control" value="${boardVO.writer}" />
 						</div>
 					</div>
-					<div class="box-footer">
+					
+				</form>
+				<div class="box-footer">
 						<button type="submit" class="btn btn-warning">SAVE</button>
 						<button type="submit" class="btn btn-danger">CANCEL</button>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
