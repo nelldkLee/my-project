@@ -32,4 +32,9 @@ public class BoardServiceImpl implements BoardService{
 		boardDao.modify(boardVO);
 	}
 
+	@Override
+	public void register(BoardVO boardVO) {
+		boardDao.register(boardVO);
+	}
+
 }

@@ -10,4 +10,6 @@ public interface BoardDao {
 	public BoardVO readPage(int bno);
 
 	public void modify(BoardVO boardVO);
+
+	public void register(BoardVO boardVO);
 }
