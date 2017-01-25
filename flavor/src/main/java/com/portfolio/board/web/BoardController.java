@@ -67,6 +67,12 @@ public class BoardController {
 		return "redirect:/board/readPage?bno=" + boardVO.getBno();
 	}
 	
+	@RequestMapping(value="/removePage", method = RequestMethod.POST)
+	public String removePage(@RequestParam("bno") int bno,RedirectAttributes rttr){
+		boardService.removePage(bno);
+		rttr.addFlashAttribute("msg", "success");
+		return "redirect:/board/listPage";
+	}
 	
 	
 	

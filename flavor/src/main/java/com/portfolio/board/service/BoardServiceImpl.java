@@ -37,4 +37,9 @@ public class BoardServiceImpl implements BoardService{
 		boardDao.register(boardVO);
 	}
 
+	@Override
+	public void removePage(int bno) {
+		boardDao.removePage(bno);
+	}
+
 }

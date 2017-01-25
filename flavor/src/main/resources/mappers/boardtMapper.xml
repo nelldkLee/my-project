@@ -29,5 +29,10 @@
 		select bno from tbl_board where writer = #{writer} 
 		order by bno desc limit 0, 1
 	</select>
+	<delete id="deletePage">
+		delete 
+		from tbl_board 
+		where bno = #{bno}
+	</delete>
 	
 </mapper>

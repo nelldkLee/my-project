@@ -45,4 +45,10 @@ public class BoardDaoImpl implements BoardDao{
 		
 		boardVO.setBno(session.selectOne(namespace + ".searchBno", boardVO));
 	}
+
+
+	@Override
+	public void removePage(int bno) {
+		session.delete(namespace + ".deletePage", bno);
+	}
 }

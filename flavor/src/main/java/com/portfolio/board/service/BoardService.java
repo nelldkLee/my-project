@@ -12,4 +12,6 @@ public interface BoardService {
 	public void modifyPage(BoardVO boardVO);
 
 	public void register(BoardVO boardVO);
+
+	public void removePage(int bno);
 }

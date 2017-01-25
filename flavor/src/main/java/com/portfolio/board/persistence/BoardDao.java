@@ -12,4 +12,6 @@ public interface BoardDao {
 	public void modify(BoardVO boardVO);
 
 	public void register(BoardVO boardVO);
+
+	public void removePage(int bno);
 }
