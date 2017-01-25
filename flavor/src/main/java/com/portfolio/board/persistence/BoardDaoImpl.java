@@ -37,4 +37,12 @@ public class BoardDaoImpl implements BoardDao{
 	public void modify(BoardVO boardVO) {
 		session.update(namespace + ".modifyPage",boardVO);
 	}
+
+
+	@Override
+	public void register(BoardVO boardVO) {
+		session.insert(namespace + ".register", boardVO);
+		
+		boardVO.setBno(session.selectOne(namespace + ".searchBno", boardVO));
+	}
 }

@@ -52,4 +52,22 @@ public class BoardController {
 		return "redirect:/board/listPage";
 	}
 	
+	@RequestMapping(value="/register", method = RequestMethod.GET)
+	public String registerPage(){
+		
+		return "board/register";
+	}
+	@RequestMapping(value="/register", method = RequestMethod.POST)
+	public String register(BoardVO boardVO,RedirectAttributes rttr){
+		
+		boardService.register(boardVO);
+		
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/board/readPage?bno=" + boardVO.getBno();
+	}
+	
+	
+	
+	
 }
