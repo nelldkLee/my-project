@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.portfolio.board.domain.BoardVO;
+import com.portfolio.board.domain.Criteria;
 
 @Repository
 public class BoardDaoImpl implements BoardDao{
@@ -19,9 +20,9 @@ public class BoardDaoImpl implements BoardDao{
 	
 	
 	@Override
-	public List<BoardVO> listPage() {
+	public List<BoardVO> listPage(Criteria cri) {
 		//System.out.println(session.getConfiguration().getMappedStatementNames());
-		return session.selectList(namespace + ".listPage");
+		return session.selectList(namespace + ".listPage",cri);
 				
 	}
 
@@ -50,5 +51,11 @@ public class BoardDaoImpl implements BoardDao{
 	@Override
 	public void removePage(int bno) {
 		session.delete(namespace + ".deletePage", bno);
+	}
+
+
+	@Override
+	public int listTotalCount() {
+		return session.selectOne(namespace + ".listTotalCount");
 	}
 }

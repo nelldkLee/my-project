@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.portfolio.board.domain.BoardVO;
+import com.portfolio.board.domain.Criteria;
 import com.portfolio.board.persistence.BoardDao;
 
 @Service
@@ -16,9 +17,9 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDao boardDao;
 	
 	@Override
-	public List<BoardVO> listPage() {
+	public List<BoardVO> listPage(Criteria cri) {
 			
-		return boardDao.listPage();
+		return boardDao.listPage(cri);
 	}
 
 	@Override
@@ -40,6 +41,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void removePage(int bno) {
 		boardDao.removePage(bno);
+	}
+
+	@Override
+	public int listTotalCount() {
+		return boardDao.listTotalCount();
 	}
 
 }

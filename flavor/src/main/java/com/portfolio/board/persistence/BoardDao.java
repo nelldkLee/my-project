@@ -3,9 +3,10 @@ package com.portfolio.board.persistence;
 import java.util.List;
 
 import com.portfolio.board.domain.BoardVO;
+import com.portfolio.board.domain.Criteria;
 
 public interface BoardDao {
-	public List<BoardVO> listPage();
+	public List<BoardVO> listPage(Criteria cri);
 
 	public BoardVO readPage(int bno);
 
@@ -14,4 +15,6 @@ public interface BoardDao {
 	public void register(BoardVO boardVO);
 
 	public void removePage(int bno);
+
+	public int listTotalCount();
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.portfolio.board.domain.BoardVO;
+import com.portfolio.board.domain.Criteria;
+import com.portfolio.board.domain.PageMaker;
 import com.portfolio.board.service.BoardService;
 
 @Controller
@@ -22,10 +24,18 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/listPage",method = RequestMethod.GET)
-	public String listPage(Model model){
+	public String listPage(Model model,Criteria cri){
 		
-		List<BoardVO> list = boardService.listPage();
+		PageMaker pageMaker = new PageMaker();
+		
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(boardService.listTotalCount());
+		
+		model.addAttribute("pageMaker", pageMaker);
+		
+		List<BoardVO> list = boardService.listPage(cri);
 		model.addAttribute("list", list);
+		
 		return "board/listPage";
 	}
 	

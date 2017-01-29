@@ -6,6 +6,7 @@
 	
 	<select id="listPage" resultType="BoardVO">
 		select * from tbl_board order by bno DESC, regdate DESC
+		limit #{pageStartNum}, #{perPageNum}
 		
 	</select>
 
@@ -34,5 +35,8 @@
 		from tbl_board 
 		where bno = #{bno}
 	</delete>
+	<select id="listTotalCount" resultType="int">
+		select count(bno) from tbl_board where bno > 0
+	</select>
 	
 </mapper>
