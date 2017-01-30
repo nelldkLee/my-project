@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.portfolio.board.domain.BoardVO;
-import com.portfolio.board.domain.Criteria;
+import com.portfolio.board.domain.SearchCriteria;
 
 @Repository
 public class BoardDaoImpl implements BoardDao{
@@ -20,7 +20,7 @@ public class BoardDaoImpl implements BoardDao{
 	
 	
 	@Override
-	public List<BoardVO> listPage(Criteria cri) {
+	public List<BoardVO> listPage(SearchCriteria cri) {
 		//System.out.println(session.getConfiguration().getMappedStatementNames());
 		return session.selectList(namespace + ".listPage",cri);
 				

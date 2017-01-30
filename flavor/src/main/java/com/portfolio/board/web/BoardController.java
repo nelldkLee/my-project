@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.portfolio.board.domain.BoardVO;
-import com.portfolio.board.domain.Criteria;
 import com.portfolio.board.domain.PageMaker;
+import com.portfolio.board.domain.SearchCriteria;
 import com.portfolio.board.service.BoardService;
 
 @Controller
@@ -24,7 +24,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/listPage",method = RequestMethod.GET)
-	public String listPage(Model model,Criteria cri){
+	public String listPage(Model model,SearchCriteria cri){
 		
 		PageMaker pageMaker = new PageMaker();
 		

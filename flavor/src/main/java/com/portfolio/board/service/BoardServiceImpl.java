@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.portfolio.board.domain.BoardVO;
-import com.portfolio.board.domain.Criteria;
+import com.portfolio.board.domain.SearchCriteria;
 import com.portfolio.board.persistence.BoardDao;
 
 @Service
@@ -17,7 +17,7 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDao boardDao;
 	
 	@Override
-	public List<BoardVO> listPage(Criteria cri) {
+	public List<BoardVO> listPage(SearchCriteria cri) {
 			
 		return boardDao.listPage(cri);
 	}
