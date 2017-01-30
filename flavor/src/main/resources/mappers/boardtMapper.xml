@@ -5,7 +5,10 @@
 <mapper namespace="com.portfolio.mapper.BoardMapper">
 	
 	<select id="listPage" resultType="BoardVO">
-		select * from tbl_board order by bno DESC, regdate DESC
+		select * from tbl_board  
+		where bno>0 
+		<include refid="search"></include>
+		order by bno DESC 
 		limit #{pageStartNum}, #{perPageNum}
 		
 	</select>
@@ -38,5 +41,32 @@
 	<select id="listTotalCount" resultType="int">
 		select count(bno) from tbl_board where bno > 0
 	</select>
+	
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			AND title LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test="searchType == 'c'.toString()">
+			AND content Like concat('%', #{keyword}, '%')
+		</if>
+		<if test="searchType == 'w'.toString()">
+			AND writer LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			AND (title LIKE concat('%', #{keyword},'%') or content LIKE concat('%', #{keyword},'%'))
+		</if>
+		 <if test="searchType == 'cw'.toString()">
+                AND (content LIKE concat('%', #{keyword}, '%') OR writer LIKE concat('%', #{keyword}, '%'))
+        </if>
+        <if test="searchType == 'tcw'.toString()">
+            AND (title LIKE concat('%', #{keyword}, '%')
+            OR
+            content LIKE concat('%', #{keyword}, '%')
+            OR
+            writer LIKE concat('%', #{keyword}, '%'))
+        </if>
+		
+	</sql>
+	
 	
 </mapper>
