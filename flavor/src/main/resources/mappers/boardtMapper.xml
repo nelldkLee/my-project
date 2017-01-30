@@ -39,7 +39,8 @@
 		where bno = #{bno}
 	</delete>
 	<select id="listTotalCount" resultType="int">
-		select count(bno) from tbl_board where bno > 0
+		select count(bno) from tbl_board where bno > 0 
+		<include refid="search"></include>
 	</select>
 	
 	<sql id="search">

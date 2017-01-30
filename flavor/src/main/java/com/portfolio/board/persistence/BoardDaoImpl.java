@@ -55,7 +55,7 @@ public class BoardDaoImpl implements BoardDao{
 
 
 	@Override
-	public int listTotalCount() {
-		return session.selectOne(namespace + ".listTotalCount");
+	public int listTotalCount(SearchCriteria cri) {
+		return session.selectOne(namespace + ".listTotalCount", cri);
 	}
 }

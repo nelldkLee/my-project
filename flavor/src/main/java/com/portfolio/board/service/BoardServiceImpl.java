@@ -44,8 +44,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int listTotalCount() {
-		return boardDao.listTotalCount();
+	public int listTotalCount(SearchCriteria cri) {
+		return boardDao.listTotalCount(cri);
 	}
 
 }

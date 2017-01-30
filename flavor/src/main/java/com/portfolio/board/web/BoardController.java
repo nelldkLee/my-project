@@ -29,7 +29,7 @@ public class BoardController {
 		PageMaker pageMaker = new PageMaker();
 		
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(boardService.listTotalCount());
+		pageMaker.setTotalCount(boardService.listTotalCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
 		

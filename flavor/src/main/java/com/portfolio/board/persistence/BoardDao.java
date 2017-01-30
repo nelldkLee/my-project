@@ -16,5 +16,5 @@ public interface BoardDao {
 
 	public void removePage(int bno);
 
-	public int listTotalCount();
+	public int listTotalCount(SearchCriteria cri);
 }
