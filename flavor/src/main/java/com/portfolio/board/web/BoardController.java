@@ -69,7 +69,7 @@ public class BoardController {
 		rttr.addAttribute("bno",boardVO.getBno());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/board/readPage;
+		return "redirect:/board/readPage";
 	}
 	
 	@RequestMapping(value="/removePage", method = RequestMethod.POST)
