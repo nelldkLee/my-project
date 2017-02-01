@@ -24,7 +24,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/listPage",method = RequestMethod.GET)
-	public String listPage(Model model,SearchCriteria cri){
+	public void listPage(Model model,SearchCriteria cri){
 		
 		PageMaker pageMaker = new PageMaker();
 		
@@ -36,15 +36,12 @@ public class BoardController {
 		List<BoardVO> list = boardService.listPage(cri);
 		model.addAttribute("list", list);
 		
-		return "board/listPage";
 	}
 	
 	@RequestMapping(value="/readPage",method = RequestMethod.GET)
-	public String readPage(Model model, @RequestParam("bno") int bno){
+	public void readPage(Model model, @RequestParam("bno") int bno){
 		
 		model.addAttribute(boardService.readPage(bno));
-		
-		return "board/readPage";
 	}
 	
 	@RequestMapping(value="/modifyPage",method = RequestMethod.GET)
@@ -63,18 +60,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String registerPage(){
-		
-		return "board/register";
+	public void registerPage(){
 	}
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String register(BoardVO boardVO,RedirectAttributes rttr){
 		
 		boardService.register(boardVO);
-		
+		rttr.addAttribute("bno",boardVO.getBno());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/board/readPage?bno=" + boardVO.getBno();
+		return "redirect:/board/readPage;
 	}
 	
 	@RequestMapping(value="/removePage", method = RequestMethod.POST)
@@ -83,7 +78,6 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/board/listPage";
 	}
-	
-	
+
 	
 }
